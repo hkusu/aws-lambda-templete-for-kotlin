@@ -10,4 +10,4 @@ This is a project template for creating an AWS Lambda application using Kotlin.
 
     ./gradlew clean build
 
-A zip file for uploading to the AWS Management Console is created in `build/distributions/`
+A zip file for uploading to the AWS Management Console is created in `build/distributions/`.
