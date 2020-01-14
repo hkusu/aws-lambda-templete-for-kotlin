@@ -1,0 +1,45 @@
+group 'io.github.hkusu'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        kotlin_version = '1.3.40'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: "kotlin"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    
+    // AWS
+    implementation 'com.amazonaws:aws-lambda-java-core:1.1.0'
+}
+
+task buildZip(type: Zip) {
+    from compileKotlin
+    from processResources
+    into('lib') {
+        from configurations.compileClasspath
+    }
+}
+
+build.dependsOn buildZip
+
+task localRun(type: JavaExec) {
+    main = "io.github.hkusu.githubrepositoryreport.LocalRunKt"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+defaultTasks 'localRun'
