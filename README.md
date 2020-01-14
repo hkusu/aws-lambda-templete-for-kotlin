@@ -1,6 +1,6 @@
 # AWS Lambda template for Kotlin
 
-This is a template for creating an AWS Lambda application using Kotlin
+This is a project template　pro for creating an AWS Lambda application using Kotlin.
 
 ## Run locally
 
