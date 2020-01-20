@@ -6,13 +6,13 @@ import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.LambdaLogger
 
 fun main(args: Array<String>) {
-    val main = Handler()
+    val handler = Handler()
 
     // ローカルで実行する場合は
     //   export HOGE_TOKEN="your token"
     // で環境変数を設定しておく(AWS Lambda として動かす場合は管理コンソールで設定)
 
-    println(main.handleRequest(Input("hoge"), DummyContest()))
+    println(handler.handleRequest(Input("hoge"), DummyContest()))
 
     // exitProcess(0) // コルーチン等を利用してプロセスが終了しない場合
 }
