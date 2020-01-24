@@ -12,12 +12,12 @@ fun main(args: Array<String>) {
     //   export HOGE_TOKEN="your token"
     // で環境変数を設定しておく(AWS Lambda として動かす場合は管理コンソールで設定)
 
-    println(handler.handleRequest(Input("hoge"), DummyContest()))
+    println(handler.handleRequest(Input("hoge"), DummyContext()))
 
     // exitProcess(0) // コルーチン等を利用してプロセスが終了しない場合
 }
 
-class DummyContest: Context {
+class DummyContext: Context {
     override fun getAwsRequestId(): String {
         TODO("not implemented")
     }
